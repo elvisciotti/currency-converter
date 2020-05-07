@@ -9,7 +9,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class DownloaderTryAgainTest {
     private final String mockContent = "mock Content";

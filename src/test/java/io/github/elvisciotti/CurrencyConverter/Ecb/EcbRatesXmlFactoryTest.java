@@ -13,24 +13,27 @@ class EcbRatesXmlFactoryTest {
     private String xmlContent1;
 
     {
-        String fixturePath = getClass().getClassLoader().getResource("resources/ecb.xml").getFile();
         try {
+            String filePath = getClass()
+                    .getClassLoader()
+                    .getResource("junit-fixtures/ecb.xml")
+                    .getFile();
+
             xmlContent1 = Files
-                    .newBufferedReader(Paths.get(fixturePath))
+                    .newBufferedReader(Paths.get(filePath))
                     .lines()
                     .collect(Collectors.joining());
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             e.printStackTrace();
         }
     }
-
 
     @Test
     void factory() throws Exception {
         EcbRates sut = EcbRatesXmlFactory.factory(xmlContent1);
         assertEquals(true, sut.has("USD"));
+        assertEquals(true, sut.has("GBP"));
         assertEquals(1.0807, sut.get("USD"), 0.0001);
-        assertEquals(20.0603, sut.get("ZAR"), 0.0001);
         System.out.println(xmlContent1);
     }
 }
