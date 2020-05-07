@@ -14,7 +14,8 @@ public class VoidCache implements CacheInterface {
     }
 
     @Override
-    public void store(String key, String data) {}
+    public void store(String key, String data) {
+    }
 
     @Override
     public void clean(String key) throws IOException {

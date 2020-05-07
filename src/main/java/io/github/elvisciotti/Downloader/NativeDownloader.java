@@ -13,7 +13,7 @@ public class NativeDownloader implements DownloaderInterface {
     public String getContent(URL url) throws IOException {
         try (
                 InputStreamReader isr = new InputStreamReader(url.openStream());
-                BufferedReader br = new BufferedReader(isr);
+                BufferedReader br = new BufferedReader(isr)
         ) {
             StringBuffer content = new StringBuffer();
             String inputLine;

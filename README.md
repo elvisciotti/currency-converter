@@ -1,15 +1,19 @@
 # Currency converter
 
-Library + command line to convert currencies using online XML (downloaded and locally cached bypassing network failures).
+Java command line library to convert currencies using real time conversion rates from [ECB](https://www.ecb.europa.eu/) central bank
 
-Built to show an example usage of Java 8 core, OOP design (SOLID principles), JUnit 5 and Mockito, Maven.
+    java -jar target/currency-converter.jar 100 GBP EUR
+    >  114.89
 
-Work in progress (missing args parsing, XML, converting logic, few junit cases)
 
-## Build
+Built to show an example of usage of 
+ * Java 8 core (IO, NIO.2, Streams, lambda, Collections, initialisers, checked exceptions, XML DOM & XPath parsing, Date libs)
+ * TDD using JUnit 5 and Mockito
+ * Maven
+ * OOP design (SOLID principles)
+ 
 
-    mvn package
-    java -jar target/<file>.jar 100 --from=EUR --to=GBP
-    
-## Test only
+## Commands
+
     mvn test
+    mvn package

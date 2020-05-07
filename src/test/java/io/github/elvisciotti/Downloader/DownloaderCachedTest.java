@@ -8,15 +8,14 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class DownloaderCachedTest {
+    private final String mockContent = "mock Content";
     private DownloaderInterface innerDownloaderMock;
     private DownloaderCached sut = new DownloaderCached(innerDownloaderMock, new MemoryCache());
-
     private URL url;
-    private final String mockContent = "mock Content";
 
     @BeforeEach
     void setUp() throws MalformedURLException {

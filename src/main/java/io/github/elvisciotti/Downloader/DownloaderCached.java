@@ -2,15 +2,14 @@ package io.github.elvisciotti.Downloader;
 
 import io.github.elvisciotti.Cache.CacheInterface;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.URL;
-import java.security.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class DownloaderCached implements DownloaderInterface {
-    private DownloaderInterface innerDownloader;
-    private CacheInterface cache;
-
     private static MessageDigest messageDigestSha1 = null;
+
     static {
         try {
             messageDigestSha1 = MessageDigest.getInstance("SHA-1");
@@ -18,6 +17,9 @@ public class DownloaderCached implements DownloaderInterface {
             e.printStackTrace();
         }
     }
+
+    private DownloaderInterface innerDownloader;
+    private CacheInterface cache;
 
     public DownloaderCached(DownloaderInterface innerDownloader, CacheInterface cache) {
         this.innerDownloader = innerDownloader;

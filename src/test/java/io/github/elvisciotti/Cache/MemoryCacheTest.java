@@ -18,7 +18,7 @@ class MemoryCacheTest {
 
     @Test
     void exists() throws IOException {
-        assertFalse( sut.exists(cacheId));
+        assertFalse(sut.exists(cacheId));
         sut.store(cacheId, "test");
         assertTrue(sut.exists(cacheId));
     }

@@ -1,6 +1,5 @@
 package io.github.elvisciotti.Downloader;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +8,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class DownloaderTryAgainTest {
@@ -32,18 +32,6 @@ class DownloaderTryAgainTest {
         assertEquals(mockContent, sut.getContent(url));
     }
 
-//    @Test// TODO fix this https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#1
-//    void getContentReturnSuccessAtSecondAttempt() throws IOException {
-//        when(innerDownloaderMock.getContent(url))
-//                .thenReturn(mockContent)
-//                .thenThrow(new IOException());
-//
-//        assertEquals(mockContent, sut.getContent(url));
-//        Assertions.assertThrows(IOException.class, () -> {
-//            sut.getContent(url);
-//        });
-//    }
-
     @Test
     void getContentAlwaysFail() throws IOException {
         when(innerDownloaderMock.getContent(url))
@@ -54,7 +42,5 @@ class DownloaderTryAgainTest {
                 sut.getContent(url);
             });
         }
-
-        verify(innerDownloaderMock);
     }
 }
