@@ -1,4 +1,5 @@
 .idea
-target
+target/*
+!target/currency-converter.jar
 **/.DS_Store
 docs
