@@ -2,7 +2,12 @@
 
 Java command line library to convert currencies using real time conversion rates from [ECB](https://www.ecb.europa.eu/) central bank
 
-    java -jar target/currency-converter.jar 100 GBP EUR
+    java -jar target/currency-converter-1.0-SNAPSHOT.jar --value=100 --from=GBP --to=EUR
+    >  114.89
+
+(short version)
+
+    java -jar target/currency-converter-1.0-SNAPSHOT.jar -v 100 -f GBP -t EUR
     >  114.89
 
 
